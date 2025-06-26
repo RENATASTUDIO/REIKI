@@ -57,7 +57,7 @@
 
         /* Estilo do card de vidro */
         .glass-card {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.8); /* Um pouco mais opaco para legibilidade */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.4);
@@ -94,12 +94,6 @@
         .delay-2 { animation-delay: -1.7s; }
         .delay-3 { animation-delay: -3.3s; }
 
-        /* Estilo para integrar a flor de lótus com o fundo */
-        .lotus-image {
-            -webkit-mask-image: radial-gradient(circle, white 60%, transparent 100%);
-            mask-image: radial-gradient(circle, white 60%, transparent 100%);
-        }
-
         /* Estilo para texto em negrita nos desplegáveis */
         .accordion-text {
             font-weight: 600; /* Equivalente a font-semibold em Tailwind */
@@ -111,83 +105,86 @@
     <div id="romantic-bg"></div>
     
     <div class="min-h-screen flex items-center justify-center p-4 relative">
-        <div class="w-full max-w-2xl glass-card rounded-3xl p-6 md:p-10 text-center">
+        <!-- ATUALIZADO: Card com overflow-hidden para conter a imagem -->
+        <div class="w-full max-w-2xl glass-card rounded-3xl text-center overflow-hidden">
             
-            <header class="mb-8 relative">
-                <!-- CORRECCIÓN DEFINITIVA: URL absoluta e estável da imagem -->
-                <img src="https://i.postimg.cc/PqYp5dFp/image-d1a281.jpg" alt="Flor de Lótus Branca" class="lotus-image mx-auto mb-5 w-40 h-32 object-cover">
+            <!-- CORREÇÃO DEFINITIVA: Rota local para funcionar em GitHub -->
+            <img src="loto.jpeg" 
+                 alt="Flor de lótus branca sobre fundo escuro" 
+                 class="w-full h-64 object-cover">
 
-                <h1 class="text-6xl md:text-7xl text-violet-800">Studio Renata</h1>
-                <!-- Subtítulo promocional adicionado -->
-                <p class="subtitle mt-3 text-xl text-violet-700/90">Desperte sua energia interior e encontre o equilíbrio.</p>
-            </header>
-            
-            <main class="space-y-4 text-left">
+            <!-- Container para o conteúdo de texto -->
+            <div class="p-6 md:p-10">
+                <header class="mb-8 relative">
+                    <h1 class="text-6xl md:text-7xl text-violet-800">Studio Renata</h1>
+                    <p class="subtitle mt-3 text-xl text-violet-700/90">Desperte sua energia interior e encontre o equilíbrio.</p>
+                </header>
                 
-                <div class="accordion-item bg-white/60 rounded-xl shadow-inner">
-                    <button class="accordion-button w-full flex justify-between items-center p-4 text-xl text-violet-700 focus:outline-none">
-                        <span class="flex items-center">
-                            <i data-feather="sun" class="dynamic-symbol delay-1"></i>
-                            <h3>O que é Reiki?</h3>
-                        </span>
-                        <i data-feather="plus" class="w-6 h-6"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p class="pb-4 text-violet-900/80 leading-relaxed accordion-text">Reiki é uma terapia japonesa para redução do estresse e relaxamento que também promove a cura. É administrado pela "imposição de mãos" e baseia-se na ideia de que uma "energia vital" invisível flui através de nós e é o que nos faz estar vivos.</p>
+                <main class="space-y-4 text-left">
+                    
+                    <div class="accordion-item bg-white/60 rounded-xl shadow-inner">
+                        <button class="accordion-button w-full flex justify-between items-center p-4 text-xl text-violet-700 focus:outline-none">
+                            <span class="flex items-center">
+                                <i data-feather="sun" class="dynamic-symbol delay-1"></i>
+                                <h3>O que é Reiki?</h3>
+                            </span>
+                            <i data-feather="plus" class="w-6 h-6"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="pb-4 text-violet-900/80 leading-relaxed accordion-text">Reiki é uma terapia japonesa para redução do estresse e relaxamento que também promove a cura. É administrado pela "imposição de mãos" e baseia-se na ideia de que uma "energia vital" invisível flui através de nós e é o que nos faz estar vivos.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="accordion-item bg-white/60 rounded-xl shadow-inner">
-                    <button class="accordion-button w-full flex justify-between items-center p-4 text-xl text-violet-700 focus:outline-none">
-                         <span class="flex items-center">
-                            <i data-feather="users" class="dynamic-symbol delay-2"></i>
-                            <h3>Reiki Presencial</h3>
-                        </span>
-                        <i data-feather="plus" class="w-6 h-6"></i>
-                    </button>
-                    <div class="accordion-content">
-                         <ul class="list-disc list-inside pb-4 text-violet-900/80 space-y-2 accordion-text">
-                            <li>Redução profunda do estresse e ansiedade.</li>
-                            <li>Alívio de dores e desconfortos físicos.</li>
-                            <li>Melhora da clareza mental e foco.</li>
-                            <li>Equilíbrio dos centros de energia (chakras).</li>
-                            <li>Fortalecimento do sistema imunológico.</li>
-                        </ul>
+                    <div class="accordion-item bg-white/60 rounded-xl shadow-inner">
+                        <button class="accordion-button w-full flex justify-between items-center p-4 text-xl text-violet-700 focus:outline-none">
+                             <span class="flex items-center">
+                                <i data-feather="users" class="dynamic-symbol delay-2"></i>
+                                <h3>Reiki Presencial</h3>
+                            </span>
+                            <i data-feather="plus" class="w-6 h-6"></i>
+                        </button>
+                        <div class="accordion-content">
+                             <ul class="list-disc list-inside pb-4 text-violet-900/80 space-y-2 accordion-text">
+                                <li>Redução profunda do estresse e ansiedade.</li>
+                                <li>Alívio de dores e desconfortos físicos.</li>
+                                <li>Melhora da clareza mental e foco.</li>
+                                <li>Equilíbrio dos centros de energia (chakras).</li>
+                                <li>Fortalecimento do sistema imunológico.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="accordion-item bg-white/60 rounded-xl shadow-inner">
-                   <button class="accordion-button w-full flex justify-between items-center p-4 text-xl text-violet-700 focus:outline-none">
-                        <span class="flex items-center">
-                           <i data-feather="wifi" class="dynamic-symbol delay-3"></i>
-                            <h3>Reiki à Distância</h3>
-                        </span>
-                        <i data-feather="plus" class="w-6 h-6"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <ul class="list-disc list-inside pb-4 text-violet-900/80 space-y-2 accordion-text">
-                            <li>Receba a energia de cura no conforto da sua casa.</li>
-                            <li>Flexibilidade total de horários.</li>
-                            <li>Tão eficaz quanto a sessão presencial.</li>
-                            <li>Ideal para quem tem mobilidade reduzida ou vive longe.</li>
-                            <li>Promove o bem-estar onde quer que você esteja.</li>
-                        </ul>
+                    
+                    <div class="accordion-item bg-white/60 rounded-xl shadow-inner">
+                       <button class="accordion-button w-full flex justify-between items-center p-4 text-xl text-violet-700 focus:outline-none">
+                            <span class="flex items-center">
+                               <i data-feather="wifi" class="dynamic-symbol delay-3"></i>
+                                <h3>Reiki à Distância</h3>
+                            </span>
+                            <i data-feather="plus" class="w-6 h-6"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <ul class="list-disc list-inside pb-4 text-violet-900/80 space-y-2 accordion-text">
+                                <li>Receba a energia de cura no conforto da sua casa.</li>
+                                <li>Flexibilidade total de horários.</li>
+                                <li>Tão eficaz quanto a sessão presencial.</li>
+                                <li>Ideal para quem tem mobilidade reduzida ou vive longe.</li>
+                                <li>Promove o bem-estar onde quer que você esteja.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
 
-            </main>
+                </main>
 
-            <footer class="mt-10">
-                <h2 class="text-4xl md:text-5xl text-violet-800">Agende sua Sessão</h2>
-                <p class="mt-3 mb-6 text-violet-700/90 max-w-md mx-auto">Permita-se esta jornada de transformação. Entre em contato para agendar seu momento de paz e cura.</p>
-                <!-- Botão com ícone de WhatsApp -->
-                <a href="https://wa.me/5547991074543" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-br from-purple-500 to-cyan-400 text-white font-semibold text-lg py-4 px-8 rounded-full shadow-lg hover:shadow-xl hover:shadow-purple-300/50 transition-all duration-300 transform hover:scale-105">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="mr-3"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99 0-3.903-.52-5.687-1.475L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.447-4.435-9.884-9.888-9.884-5.448 0-9.886 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                    <span>Contatar via WhatsApp</span>
-                </a>
-                <p class="mt-5 text-violet-700 font-semibold tracking-wider">(47) 99107-4543</p>
-            </footer>
-
+                <footer class="mt-10">
+                    <h2 class="text-4xl md:text-5xl text-violet-800">Agende sua Sessão</h2>
+                    <p class="mt-3 mb-6 text-violet-700/90 max-w-md mx-auto">Permita-se esta jornada de transformação. Entre em contato para agendar seu momento de paz e cura.</p>
+                    <a href="https://wa.me/5547991074543" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-br from-purple-500 to-cyan-400 text-white font-semibold text-lg py-4 px-8 rounded-full shadow-lg hover:shadow-xl hover:shadow-purple-300/50 transition-all duration-300 transform hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="mr-3"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99 0-3.903-.52-5.687-1.475L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.447-4.435-9.884-9.888-9.884-5.448 0-9.886 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        <span>Contatar via WhatsApp</span>
+                    </a>
+                    <p class="mt-5 text-violet-700 font-semibold tracking-wider">(47) 99107-4543</p>
+                </footer>
+            </div>
         </div>
     </div>
 
