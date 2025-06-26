@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Renata - Reiki & Terapias Energéticas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons for Accordion -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* Aplicando fontes personalizadas */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Animação do fundo gradiente */
+        .animated-gradient {
+            background: linear-gradient(-45deg, #e0c3fc, #8ec5fc, #f8cdda, #a1c4fd);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Estilo para o conteúdo do accordion */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 1.5rem;
+        }
+
+        /* Estilo para o ícone do accordion */
+        .accordion-button svg {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="animated-gradient">
+
+    <div class="min-h-screen flex items-center justify-center p-4">
+        
+        <!-- Card Principal -->
+        <div class="w-full max-w-2xl bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-10 text-center text-gray-800">
+            
+            <!-- Cabeçalho -->
+            <header class="mb-8">
+                <h1 class="text-5xl md:text-6xl font-bold text-purple-800/80">Studio Renata</h1>
+                <p class="text-lg md:text-xl text-gray-600 mt-2">Encontre seu equilíbrio, renove sua energia.</p>
+            </header>
+            
+            <!-- Seções Interativas (Accordion) -->
+            <main class="space-y-4 text-left">
+                
+                <!-- Item 1: O que é Reiki? -->
+                <div class="accordion-item bg-white/80 rounded-lg shadow-md">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 md:p-6 text-xl md:text-2xl font-semibold text-purple-700/90 focus:outline-none">
+                        <h3>O que é Reiki?</h3>
+                        <i data-feather="plus-circle" class="w-6 h-6"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="pb-6 text-gray-700">
+                            Reiki é uma terapia japonesa para redução do estresse e relaxamento que também promove a cura. É administrado pela "imposição de mãos" e baseia-se na ideia de que uma "energia vital" invisível flui através de nós e é o que nos faz estar vivos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Benefícios do Reiki Presencial -->
+                <div class="accordion-item bg-white/80 rounded-lg shadow-md">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 md:p-6 text-xl md:text-2xl font-semibold text-purple-700/90 focus:outline-none">
+                        <h3>Reiki Presencial: Benefícios</h3>
+                        <i data-feather="plus-circle" class="w-6 h-6"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc list-inside pb-6 text-gray-700 space-y-2">
+                            <li>Redução profunda do estresse e ansiedade.</li>
+                            <li>Alívio de dores e desconfortos físicos.</li>
+                            <li>Melhora da clareza mental e foco.</li>
+                            <li>Equilíbrio dos centros de energia (chakras).</li>
+                            <li>Fortalecimento do sistema imunológico.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Item 3: Benefícios do Reiki à Distância -->
+                <div class="accordion-item bg-white/80 rounded-lg shadow-md">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 md:p-6 text-xl md:text-2xl font-semibold text-purple-700/90 focus:outline-none">
+                        <h3>Reiki à Distância: Benefícios</h3>
+                        <i data-feather="plus-circle" class="w-6 h-6"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc list-inside pb-6 text-gray-700 space-y-2">
+                            <li>Receba a energia de cura no conforto da sua casa.</li>
+                            <li>Flexibilidade total de horários.</li>
+                            <li>Tão eficaz quanto a sessão presencial.</li>
+                            <li>Ideal para quem tem mobilidade reduzida ou vive longe.</li>
+                            <li>Promove o bem-estar onde quer que você esteja.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </main>
+
+            <!-- Seção de Contato -->
+            <footer class="mt-10">
+                <h3 class="text-2xl md:text-3xl font-bold text-purple-800/80">Agende sua Sessão</h3>
+                <p class="mt-2 mb-6 text-gray-600">
+                    Transforme sua vida com a energia do Reiki. Entre em contato para saber mais e agendar seu momento de paz e cura.
+                </p>
+                <a href="https://wa.me/5547991074543" target="_blank"
+                   class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                    Contatar via WhatsApp
+                </a>
+                <p class="mt-4 text-gray-600 font-semibold">(47) 99107-4543</p>
+            </footer>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Ativa os ícones do Feather
+        feather.replace();
+
+        // Lógica do Accordion
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            const button = item.querySelector('.accordion-button');
+            const content = item.querySelector('.accordion-content');
+            const icon = button.querySelector('svg');
+
+            button.addEventListener('click', () => {
+                // Fecha outros accordions abertos
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        const otherContent = otherItem.querySelector('.accordion-content');
+                        const otherIcon = otherItem.querySelector('.accordion-button svg');
+                        if (otherContent.style.maxHeight) {
+                            otherContent.style.maxHeight = null;
+                            otherContent.style.padding = '0 1.5rem';
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+                
+                // Abre ou fecha o accordion clicado
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    content.style.padding = '0 1.5rem';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.padding = '0 1.5rem 1.5rem';
+                    icon.style.transform = 'rotate(45deg)';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
