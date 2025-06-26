@@ -3,120 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Renata - Reiki & Terapias Energéticas</title>
+    <title>Studio Renata - Terapias Energéticas</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons for Accordion -->
     <script src="https://unpkg.com/feather-icons"></script>
+
     <style>
-        body { font-family: 'Poppins', sans-serif; }
-        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
-        .animated-gradient {
-            background: linear-gradient(-45deg, #e0c3fc, #8ec5fc, #f8cdda, #a1c4fd);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+        /* Aplicando fontes personalizadas */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #3c366b; /* Um tom de índigo escuro */
+            overflow-x: hidden;
         }
-        @keyframes gradientBG { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height .5s ease-out, padding .5s ease-out; padding: 0 1.5rem; }
-        .accordion-button svg { transition: transform .3s ease-in-out; }
-        .gradient-text { background: linear-gradient(to right, #5c3c92, #8e44ad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Título Principal Romântico */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+
+        /* Títulos secundários e subtítulo elegantes */
+        h2, h3, .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        
+        /* Fundo gradiente dinâmico com cores mais vivas */
+        #romantic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(-45deg, #c084fc, #9333ea, #06b6d4, #fafafa);
+            background-size: 400% 400%;
+            animation: gradientBG 18s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Estilo do card de vidro */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(147, 51, 234, 0.25);
+        }
+        
+        /* Estilos do Accordion */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.83, 0, 0.17, 1);
+            padding: 0 1.5rem;
+        }
+        .accordion-button svg:last-child {
+            transition: transform 0.5s ease;
+        }
+
+        /* Ícones temáticos com animação em novas cores */
+        .dynamic-symbol {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            stroke-width: 1.5;
+            animation: romantic-pulse 5s infinite ease-in-out;
+        }
+        @keyframes romantic-pulse {
+            0%, 100% { color: #f87171; filter: drop-shadow(0 0 4px #f87171); } /* Vermelho */
+            33% { color: #facc15; filter: drop-shadow(0 0 5px #facc15); }      /* Amarelo */
+            66% { color: #4ade80; filter: drop-shadow(0 0 4px #4ade80); }      /* Verde */
+        }
+        
+        /* NOVO: Timings diferentes para cada ícone */
+        .delay-1 { animation-delay: 0s; }
+        .delay-2 { animation-delay: -1.7s; }
+        .delay-3 { animation-delay: -3.3s; }
+
+        /* Estilo para integrar a flor de lótus com o fundo */
+        .lotus-image {
+            -webkit-mask-image: radial-gradient(circle, white 60%, transparent 100%);
+            mask-image: radial-gradient(circle, white 60%, transparent 100%);
+        }
+
+        /* Estilo para texto em negrita nos desplegáveis */
+        .accordion-text {
+            font-weight: 600; /* Equivalente a font-semibold em Tailwind */
+        }
     </style>
 </head>
-<body class="animated-gradient">
-    <div class="min-h-screen flex items-center justify-center p-4">
-        <div class="w-full max-w-2xl bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-10 text-center text-gray-800">
-            <!-- Logo -->
-            <div class="flex justify-center mb-6">
-                <img src="imagen/loto.jpg" alt="Flor de Lótus Branca" class="w-24 h-24 object-contain animate-pulse">
-            </div>
-            <!-- Cabeçalho -->
-            <header class="mb-8">
-                <h1 class="text-5xl md:text-6xl font-bold gradient-text">Studio Renata</h1>
-                <p class="text-lg md:text-xl mt-2 text-gray-600">Encontre seu equilíbrio, renove sua energia.</p>
+<body class="antialiased">
+
+    <div id="romantic-bg"></div>
+    
+    <div class="min-h-screen flex items-center justify-center p-4 relative">
+        <div class="w-full max-w-2xl glass-card rounded-3xl p-6 md:p-10 text-center">
+            
+            <header class="mb-8 relative">
+                <!-- Rota da imagem corrigida para GitHub -->
+                <img src="imagen/loto.jpg" alt="Flor de Lótus Branca" class="lotus-image mx-auto mb-5 w-40 h-32 object-cover">
+
+                <h1 class="text-6xl md:text-7xl text-violet-800">Studio Renata</h1>
+                <!-- Subtítulo promocional adicionado -->
+                <p class="subtitle mt-3 text-xl text-violet-700/90">Desperte sua energia interior e encontre o equilíbrio.</p>
             </header>
-            <!-- Accordion -->
+            
             <main class="space-y-4 text-left">
-                <!-- Item 1 -->
-                <div class="accordion-item bg-white/80 rounded-lg shadow-md">
-                    <button class="accordion-button w-full flex justify-between items-center p-4 md:p-6 text-xl md:text-2xl font-semibold text-gray-800 focus:outline-none">
-                        <div class="flex items-center space-x-2">
-                            <i data-feather="heart" class="w-6 h-6 text-red-500"></i>
+                
+                <div class="accordion-item bg-white/60 rounded-xl shadow-inner">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 text-xl text-violet-700 focus:outline-none">
+                        <span class="flex items-center">
+                            <i data-feather="sun" class="dynamic-symbol delay-1"></i>
                             <h3>O que é Reiki?</h3>
-                        </div>
-                        <i data-feather="plus-circle" class="w-6 h-6 text-gray-600"></i>
+                        </span>
+                        <i data-feather="plus" class="w-6 h-6"></i>
                     </button>
                     <div class="accordion-content">
-                        <p class="pb-6 text-gray-700">
-                            Reiki é uma terapia japonesa para redução do estresse e relaxamento que também promove a cura. É administrado pela "imposição de mãos" e baseia-se na ideia de que uma "energia vital" invisível flui através de nós e nos faz estar vivos.
-                        </p>
+                        <p class="pb-4 text-violet-900/80 leading-relaxed accordion-text">Reiki é uma terapia japonesa para redução do estresse e relaxamento que também promove a cura. É administrado pela "imposição de mãos" e baseia-se na ideia de que uma "energia vital" invisível flui através de nós e é o que nos faz estar vivos.</p>
                     </div>
                 </div>
-                <!-- Item 2 -->
-                <div class="accordion-item bg-white/80 rounded-lg shadow-md">
-                    <button class="accordion-button w-full flex justify-between items-center p-4 md:p-6 text-xl md:text-2xl font-semibold text-gray-800 focus:outline-none">
-                        <div class="flex items-center space-x-2">
-                            <i data-feather="leaf" class="w-6 h-6 text-green-500"></i>
-                            <h3>Reiki Presencial: Benefícios</h3>
-                        </div>
-                        <i data-feather="plus-circle" class="w-6 h-6 text-gray-600"></i>
+
+                <div class="accordion-item bg-white/60 rounded-xl shadow-inner">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 text-xl text-violet-700 focus:outline-none">
+                         <span class="flex items-center">
+                            <i data-feather="users" class="dynamic-symbol delay-2"></i>
+                            <h3>Reiki Presencial</h3>
+                        </span>
+                        <i data-feather="plus" class="w-6 h-6"></i>
                     </button>
                     <div class="accordion-content">
-                        <ul class="list-none pb-6 text-gray-700 space-y-2">
-                            <li class="flex items-center"><i data-feather="leaf" class="w-5 h-5 text-green-500 mr-2"></i>Redução profunda do estresse e ansiedade.</li>
-                            <li class="flex items-center"><i data-feather="activity" class="w-5 h-5 text-green-500 mr-2"></i>Alívio de dores e desconfortos físicos.</li>
-                            <li class="flex items-center"><i data-feather="cloud-drizzle" class="w-5 h-5 text-yellow-500 mr-2"></i>Melhora da clareza mental e foco.</li>
-                            <li class="flex items-center"><i data-feather="hash" class="w-5 h-5 text-red-500 mr-2"></i>Equilíbrio dos centros de energia (chakras).</li>
-                            <li class="flex items-center"><i data-feather="shield" class="w-5 h-5 text-green-500 mr-2"></i>Fortalecimento do sistema imunológico.</li>
+                         <ul class="list-disc list-inside pb-4 text-violet-900/80 space-y-2 accordion-text">
+                            <li>Redução profunda do estresse e ansiedade.</li>
+                            <li>Alívio de dores e desconfortos físicos.</li>
+                            <li>Melhora da clareza mental e foco.</li>
+                            <li>Equilíbrio dos centros de energia (chakras).</li>
+                            <li>Fortalecimento do sistema imunológico.</li>
                         </ul>
                     </div>
                 </div>
-                <!-- Item 3 -->
-                <div class="accordion-item bg-white/80 rounded-lg shadow-md">
-                    <button class="accordion-button w-full flex justify-between items-center p-4 md:p-6 text-xl md:text-2xl font-semibold text-gray-800 focus:outline-none">
-                        <div class="flex items-center space-x-2">
-                            <i data-feather="wifi" class="w-6 h-6 text-yellow-500"></i>
-                            <h3>Reiki à Distância: Benefícios</h3>
-                        </div>
-                        <i data-feather="plus-circle" class="w-6 h-6 text-gray-600"></i>
+                
+                <div class="accordion-item bg-white/60 rounded-xl shadow-inner">
+                   <button class="accordion-button w-full flex justify-between items-center p-4 text-xl text-violet-700 focus:outline-none">
+                        <span class="flex items-center">
+                           <i data-feather="wifi" class="dynamic-symbol delay-3"></i>
+                            <h3>Reiki à Distância</h3>
+                        </span>
+                        <i data-feather="plus" class="w-6 h-6"></i>
                     </button>
                     <div class="accordion-content">
-                        <ul class="list-none pb-6 text-gray-700 space-y-2">
-                            <li class="flex items-center"><i data-feather="home" class="w-5 h-5 text-red-500 mr-2"></i>Receba a energia de cura no conforto da sua casa.</li>
-                            <li class="flex items-center"><i data-feather="clock" class="w-5 h-5 text-green-500 mr-2"></i>Flexibilidade total de horários.</li>
-                            <li class="flex items-center"><i data-feather="zap" class="w-5 h-5 text-yellow-500 mr-2"></i>Tão eficaz quanto a sessão presencial.</li>
-                            <li class="flex items-center"><i data-feather="globe" class="w-5 h-5 text-red-500 mr-2"></i>Ideal para quem tem mobilidade reduzida ou vive longe.</li>
-                            <li class="flex items-center"><i data-feather="smile" class="w-5 h-5 text-green-500 mr-2"></i>Promove o bem-estar onde quer que você esteja.</li>
+                        <ul class="list-disc list-inside pb-4 text-violet-900/80 space-y-2 accordion-text">
+                            <li>Receba a energia de cura no conforto da sua casa.</li>
+                            <li>Flexibilidade total de horários.</li>
+                            <li>Tão eficaz quanto a sessão presencial.</li>
+                            <li>Ideal para quem tem mobilidade reduzida ou vive longe.</li>
+                            <li>Promove o bem-estar onde quer que você esteja.</li>
                         </ul>
                     </div>
                 </div>
+
             </main>
-            <!-- Contato -->
+
             <footer class="mt-10">
-                <h3 class="text-2xl md:text-3xl font-bold">Agende sua Sessão</h3>
-                <p class="mt-2 mb-6 text-gray-600">Transforme sua vida com a energia do Reiki. Entre em contato para saber mais e agendar seu momento de paz e cura.</p>
-                <a href="https://wa.me/5547991074543" target="_blank" class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
-                    <i data-feather="message-circle" class="w-5 h-5 inline-block mr-2 text-green-500"></i>Contatar via WhatsApp
+                <h2 class="text-4xl md:text-5xl text-violet-800">Agende sua Sessão</h2>
+                <p class="mt-3 mb-6 text-violet-700/90 max-w-md mx-auto">Permita-se esta jornada de transformação. Entre em contato para agendar seu momento de paz e cura.</p>
+                <!-- ATUALIZADO: Botão com ícone de WhatsApp -->
+                <a href="https://wa.me/5547991074543" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-br from-purple-500 to-cyan-400 text-white font-semibold text-lg py-4 px-8 rounded-full shadow-lg hover:shadow-xl hover:shadow-purple-300/50 transition-all duration-300 transform hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="mr-3"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99 0-3.903-.52-5.687-1.475L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.447-4.435-9.884-9.888-9.884-5.448 0-9.886 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>Contatar via WhatsApp</span>
                 </a>
-                <p class="mt-4 text-gray-600 font-semibold">(47) 99107-4543</p>
+                <p class="mt-5 text-violet-700 font-semibold tracking-wider">(47) 99107-4543</p>
             </footer>
+
         </div>
     </div>
+
     <script>
         feather.replace();
-        document.querySelectorAll('.accordion-item').forEach(item => {
-            const btn = item.querySelector('.accordion-button');
-            const content = item.querySelector('.accordion-content');
-            const icon = btn.querySelector('svg');
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
-                document.querySelectorAll('.accordion-button svg').forEach(i => i.style.transform = 'rotate(0deg)');
-                if (!content.style.maxHeight) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    icon.style.transform = 'rotate(45deg)';
-                }
-            });
+
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const button = item.querySelector('.accordion-button');
+            if (button) {
+                button.addEventListener('click', () => {
+                    const currentContent = item.querySelector('.accordion-content');
+                    const currentIcon = button.querySelector('svg:last-child');
+                    const isOpened = currentContent && currentContent.style.maxHeight;
+
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherContent = otherItem.querySelector('.accordion-content');
+                            const otherIcon = otherItem.querySelector('.accordion-button svg:last-child');
+                            if (otherContent) otherContent.style.maxHeight = null;
+                            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    if (isOpened) {
+                        currentContent.style.maxHeight = null;
+                        if (currentIcon) currentIcon.style.transform = 'rotate(0deg)';
+                    } else if (currentContent) {
+                        currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
+                        if (currentIcon) currentIcon.style.transform = 'rotate(45deg)';
+                    }
+                });
+            }
         });
     </script>
+
 </body>
 </html>
